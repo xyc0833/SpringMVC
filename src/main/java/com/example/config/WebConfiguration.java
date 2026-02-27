@@ -1,12 +1,11 @@
 package com.example.config;
 
+import com.example.intercepter.MainInterceptor;
+import com.example.intercepter.SubInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.*;
 import org.thymeleaf.spring6.SpringTemplateEngine;
 import org.thymeleaf.spring6.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring6.view.ThymeleafViewResolver;
@@ -53,5 +52,17 @@ public class WebConfiguration implements WebMvcConfigurer {
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
         //配置静态资源的访问路径
+    }
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        //一号拦截器
+//        registry.addInterceptor(new MainInterceptor())
+//                .addPathPatterns("/**")//添加拦截器的匹配路径，只要匹配一律拦截
+//                .excludePathPatterns("/home");//拦截器不进行拦截的路径
+
+        //二号拦截器
+//        registry.addInterceptor(new SubInterceptor())
+//                .addPathPatterns("/**");
     }
 }

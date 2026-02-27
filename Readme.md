@@ -72,3 +72,9 @@ public class UserController {
 3. 核心区别：`@Controller` 侧重跳转页面，`@RestController` 侧重返回数据。
 
 简单说，只要你的控制器是给前端提供接口（返回数据），就用 `@RestController`；如果需要跳转页面，就用 `@Controller`。
+
+
+## 编写了专门的异常处理界面 但是有问题 
+
+类放错位置了
+
