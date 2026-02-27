@@ -3,11 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>测试</title>
-    <!-- 引用静态资源，这里使用Thymeleaf的网址链接表达式，Thymeleaf会自动添加web应用程序的名称到链接前面 -->
-    <script th:src="@{/static/test.js}"></script>
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
 </head>
 <body>
-<p>欢迎</p>
-<div th:text = "${name}"></div>
+<p>欢迎来到网站</p>
+<p>用户名: <span id="username"></span></p>
+<p>密码: <span id="password"></span></p>
+<button onclick="getInfo()">获取用户名和密码</button>
+
+<div>
+    <form action="upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <input type="submit">
+    </form>
+</div>
+
+<a href="download" download="test.png">下载最新资源</a>
 </body>
 </html>
+
+<script>
+    function getInfo() {
+        axios.get('/SpringMVC_war_exploded/test').then(({data}) => {
+            document.getElementById('username').innerText = data.username
+            document.getElementById('password').innerText = data.password
+        })
+    }
+</script>
