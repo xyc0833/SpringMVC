@@ -1,0 +1,1 @@
+window.alert("欢迎来到xyc的网站")

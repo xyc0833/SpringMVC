@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试</title>
+    <!-- 引用静态资源，这里使用Thymeleaf的网址链接表达式，Thymeleaf会自动添加web应用程序的名称到链接前面 -->
+    <script th:src="@{/static/test.js}"></script>
+</head>
+<body>
+<p>欢迎</p>
+<div th:text = "${name}"></div>
+</body>
+</html>
