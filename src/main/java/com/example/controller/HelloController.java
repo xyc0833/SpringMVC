@@ -17,11 +17,34 @@ import java.net.http.HttpResponse;
 @Controller//直接添加注解即可
 public class HelloController {
 
-    @RequestMapping(value = "/")
-    public ModelAndView index(HttpServletResponse response, @CookieValue(value="JSESSIONID",required = false)String test){
-        System.out.println("获取到cookie值为：" + test);
-        response.addCookie(new Cookie("test","xyc01"));
-        return new ModelAndView("index");  //返回ModelAndView对象，这里填入了视图的名称
+//    @RequestMapping(value = "/")
+//    public ModelAndView index(HttpServletResponse response, @CookieValue(value="JSESSIONID",required = false)String test){
+//        System.out.println("获取到cookie值为：" + test);
+//        response.addCookie(new Cookie("test","xyc01"));
+//        return new ModelAndView("index");  //返回ModelAndView对象，这里填入了视图的名称
+//    }
+
+    //重定向
+    @RequestMapping("/index")
+    public String index(){
+        return "redirect:home";
     }
+
+    @RequestMapping("/home")
+    public String home(){
+        return "home";
+    }
+
+    //请求转发
+
+//    @RequestMapping("/index")
+//    public String index(){
+//        return "forward:home";
+//    }
+//
+//    @RequestMapping("/home")
+//    public String home(){
+//        return "home";
+//    }
 
 }
